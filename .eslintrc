@@ -1,0 +1,22 @@
+{
+  "extends": [
+    "standard",
+    "standard-jsx",
+    "standard-flow"
+  ],
+  "parser": "babel-eslint",
+  "settings": {
+    "ecmascript": 6
+  },
+  "env": {
+    "browser": true
+  },
+  "rules": {
+    "no-trailing-spaces": [
+      "error",
+      {
+        "skipBlankLines": true
+      }
+    ]
+  }
+}
