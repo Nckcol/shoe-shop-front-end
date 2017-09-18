@@ -3,6 +3,8 @@ const path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin')
+const MinifyPlugin = require('babel-minify-webpack-plugin')
+const CompressionPlugin = require('compression-webpack-plugin')
 const PreloadWebpackPlugin = require('preload-webpack-plugin')
 const { getIfUtils, removeEmpty } = require('webpack-config-utils')
 
@@ -122,8 +124,26 @@ module.exports = function (options) {
           }
         },
         {
+          test: /\.s?css$/,
+          use: ExtractTextPlugin.extract({
+            fallback: 'style-loader',
+            use: [
+              {
+                loader: 'css-loader',
+                options: {
+                  modules: true,
+                  importLoaders: 1,
+                  localIdentName: ifProduction('[hash:base64:5]', '[path][name]-[local]')
+                }
+              },
+              'postcss-loader',
+              'sass-loader'
+            ]
+          })
+        },
+        /*
+        {
           test: /\.(scss|css)$/,
-          //exclude: /node_modules/,
           use: ifProduction(
             ExtractTextPlugin.extract({
               fallback: 'style-loader',
@@ -173,6 +193,7 @@ module.exports = function (options) {
             ]
           )
         },
+        */
         {
           test: /\.(js|jsx)$/,
           exclude: /node_modules/,
@@ -190,6 +211,7 @@ module.exports = function (options) {
     },
 
     plugins: removeEmpty([
+      
       new webpack.optimize.CommonsChunkPlugin({
         async: true,
         children: true,
@@ -235,6 +257,15 @@ module.exports = function (options) {
       // preload chunks
       new PreloadWebpackPlugin(),
 
+      ifProduction(new CompressionPlugin({
+        asset: '[path].gz[query]',
+        algorithm: 'gzip',
+        test: /\.(js|html)$/,
+        threshold: 10240,
+        minRatio: 0.8
+      })),
+      
+      ifProduction(new MinifyPlugin()),
       /*
       ifProduction(new UglifyJSPlugin({
         warnings: false,
@@ -275,11 +306,19 @@ module.exports = function (options) {
       // don't spit out any errors in compiled assets
       ifNotProduction(new webpack.NoEmitOnErrorsPlugin()),
 
-      /*new ServiceworkerPlugin({
+      /*
+      new ServiceworkerPlugin({
         entry: path.join(PATHS.source, 'sw.js'),
         includes: ['**!/!*.{html,js,css,svg,png,jpe?g}']
-      })*/
+      })
+      */
 
+      new webpack.LoaderOptionsPlugin({
+        minimize: true,
+        options: {
+          context: __dirname // TODO: Check importance. For CSS modules path works with PostCSS. See: https://github.com/webpack-contrib/css-loader/issues/413#issuecomment-283944881
+        }
+      })
     ]),
 
     performance: ifProduction({
