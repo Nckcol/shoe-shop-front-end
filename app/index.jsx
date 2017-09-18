@@ -1,3 +1,5 @@
+import 'whatwg-fetch'
+
 import ReactDOM from 'react-dom'
 import React from 'react'
 
@@ -6,7 +8,7 @@ import { AppContainer } from 'react-hot-loader'
 
 import './index.scss'
 
-import { App } from 'containers/App'
+import { App } from './core/containers/App'
 
 const renderApp = Component => {
   ReactDOM.render(

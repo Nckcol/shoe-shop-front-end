@@ -83,7 +83,8 @@
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
-    "reselect": "^3.0.1"
+    "reselect": "^3.0.1",
+    "whatwg-fetch": "^2.0.3"
   },
   "engines": {
     "node": ">=8.4.0",
