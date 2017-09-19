@@ -5,7 +5,6 @@ class API {
    * Auth
    */
 
-
   static signIn ({ email, password }) {
     return fetch(`${SERVER_NAME}/auth/signin`, {
       method: 'POST',
@@ -29,18 +28,19 @@ class API {
         name,
         email,
         password
-      }) 
+      })
     })
   }
 
-  static logOut () {
+  static logOut (_, token) {
     return fetch(`${SERVER_NAME}/auth/logout`, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token
       },
       body: JSON.stringify({
-      }) 
+      })
     })
   }
 
@@ -48,7 +48,7 @@ class API {
    * User
    */
 
-  static getProfile(token) {
+  static getProfile (_, token) {
     return fetch(`${SERVER_NAME}/user/profile`, {
       method: 'GET',
       headers: {
@@ -61,8 +61,8 @@ class API {
     })
   }
 
-  static getPurchases(token) {
-    return fetch(`${SERVER_NAME}/user/purchases`, {
+  static getOrders (_, token) {
+    return fetch(`${SERVER_NAME}/user/orders`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -78,7 +78,7 @@ class API {
    * Products
    */
 
-  static getProducts() {
+  static getProducts () {
     return fetch(`${SERVER_NAME}/products`, {
       method: 'GET',
       headers: {
@@ -90,12 +90,11 @@ class API {
     })
   }
 
-  static getProductDetails({product_id}) {
-    return fetch(`${SERVER_NAME}/products/${product_id}`, {
+  static getProductDetails ({productId}) {
+    return fetch(`${SERVER_NAME}/products/${productId}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
-
       },
       body: JSON.stringify({
 
@@ -107,8 +106,8 @@ class API {
    * Cart
    */
 
-  static getCart(token) {
-    return fetch(`${SERVER_NAME}/cart`, {
+  static getCart (_, token) {
+    return fetch(`${SERVER_NAME}/user/cart`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -120,21 +119,34 @@ class API {
     })
   }
 
-  static addToCart({product_id}, token) {
-    return fetch(`${SERVER_NAME}/cart/add`, {
+  static addProductToCart ({ productId }, token) {
+    return fetch(`${SERVER_NAME}/user/cart/product`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': 'Bearer ' + token
       },
       body: JSON.stringify({
-        product_id
+        productId
       })
     })
   }
 
-  static orderCart(token) {
-    return fetch(`${SERVER_NAME}/cart/order`, {
+  static removeProductFromCart ({ productId }, token) {
+    return fetch(`${SERVER_NAME}/user/cart/product`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token
+      },
+      body: JSON.stringify({
+        productId
+      })
+    })
+  }
+
+  static placeOrder ({ delivery, payment }, token) {
+    return fetch(`${SERVER_NAME}/user/order`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -147,5 +159,5 @@ class API {
 }
 
 export {
-    API
+  API
 }

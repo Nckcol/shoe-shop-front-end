@@ -1,0 +1,49 @@
+{
+  "properties": [
+    {
+      "title": "Color",
+      "values": [
+        ""
+      ]
+    },
+    {
+      "title": "Upper Material",
+      "values": [
+        ""
+      ]
+    },
+    {
+      "title": "Sole Material",
+      "values": [
+        ""
+      ]
+    },
+    {
+      "title": "Tip shape",
+      "values": [
+        ""
+      ]
+    },
+    {
+      "title": "Ankle Height",
+      "values": [
+        ""
+      ]
+    },
+    {
+      "title": "Shoe Weight",
+      "values": [
+        ""
+      ]
+    },
+    {
+      "title": "Shoe Care",
+      "values": [
+        ""
+      ]
+    },
+    {
+      "title": "SKU"
+    }
+  ]
+}

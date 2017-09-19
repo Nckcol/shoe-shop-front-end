@@ -1,0 +1,114 @@
+{
+  "products": [
+    {
+      "id": 0,
+      "SKU": "PU102SH00GBMINDFAS",
+      "title": "1948 Mid Dp Blue Sneakers",
+      "brand": 0,
+      "category": 27,
+      "gender": "Men",
+      "price": {
+        "actual": 2275,
+        "default": 3499,
+        "discount": 35
+      },
+      "availability": true,
+      "photos": [
+        {
+          "main": "",
+          "thumb": "",
+          "2x": ""
+        },
+        {
+          "main": "",
+          "thumb": "",
+          "2x": ""
+        }
+      ],
+      "options": [
+        {
+          "title": "color"
+        },
+        {
+          "title": "size"
+        }
+      ],
+      "models": [
+        {
+          "color": {
+            "name": "",
+            "value": ""
+          },
+          "size": 0,
+          "count": 10
+        },
+        {
+          "color": {
+            "name": "",
+            "value": ""
+          },
+          "size": 0,
+          "count": 10
+        }
+      ],
+      "description": "Encapsulate an ultimate look wearing this pair of sneakers from the house of Puma. Made from durable upper and sole, these shoes are a versatile pick. These lightweight sneakers will look good when worn with a pair of jeans and a T-shirt."
+      "properties": [
+        {
+          "title": "Color",
+          "value": "",
+          "base": null
+        },
+        {
+          "title": "Upper Material",
+          "value": "Synthetic Leather",
+          "base": null
+        },
+        {
+          "title": "Sole Material",
+          "value": "Rubber",
+          "base": null
+        },
+        {
+          "title": "Tip shape",
+          "value": "Round",
+          "base": null
+        },
+        {
+          "title": "Ankle Height",
+          "value": "Mid Ankle",
+          "base": null
+        },
+        {
+          "title": "Shoe Weight",
+          "value": "Regular (415 GM)",
+          "base": null
+        },
+        {
+          "title": "Shoe Care",
+          "value": "Surface Dirt can be cleaned with a good quality brush or a damp cloth.",
+          "base": null
+        },
+        {
+          "title": "SKU",
+          "value": "PU102SH00GBMINDFAS",
+          "base": null
+        }
+      ]
+    },
+    {
+      
+    },
+    {
+      
+    },
+    {
+      
+    },
+    {
+      
+    },
+    {
+      
+    }
+  ] 
+}
