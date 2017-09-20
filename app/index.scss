@@ -12,4 +12,9 @@ body {
 
 :global(#root) {
   overflow: hidden;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
 }

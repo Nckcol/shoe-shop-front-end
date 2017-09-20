@@ -1,3 +1,22 @@
-.App {
-  width: auto;
+.Root {
+  flex: 1 0 auto;
+  background-color: #f2f2f2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.Header {
+  flex: 0 0 auto;
+}
+
+.Content {
+  flex: 1 0 auto;
+}
+
+.Footer {
+  padding: 4px;
+  flex: 0 0 auto;
+  border-bottom: 4px solid #333;
 }
