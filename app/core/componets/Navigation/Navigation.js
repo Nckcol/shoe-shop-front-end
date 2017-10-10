@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import styles from './Navigation.scss'
 import { NavigationItem } from './NavigationItem'
+import { CurrentNavigationItem } from './CurrentNavigationItem'
 
 class Navigation extends Component {
   render () {
@@ -11,7 +12,10 @@ class Navigation extends Component {
       <nav className={styles.Root}>
         {
           list.map(
-            ({title, link}, index) => <NavigationItem styles={styles} title={title} link={link} id={index} />
+            ({title, link, isCurrent}, index) => {
+              const Item = isCurrent ? CurrentNavigationItem : NavigationItem
+              return <Item key={index} styles={styles} title={title} link={link} />
+            }
           )
         }
       </nav>

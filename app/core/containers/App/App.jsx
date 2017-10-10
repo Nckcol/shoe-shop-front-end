@@ -1,17 +1,22 @@
 import React, { Component } from 'react'
 import styles from './App.scss'
-import { Header } from '../../componets/Header/index'
+import { Header } from '../../componets/Header'
+import { ProductList } from 'core/componets/ProductList'
 
 class App extends Component {
   mainContent () {
     return (
-      <div>
-        The main content
-        {
-          Array.from(new Array(100)).map(
-            (_, i) => <p>{i}</p>
-          )
-        }
+      <div className={styles.Section}>
+        <ProductList list={[
+          {
+            title: 'Product',
+            brand: 'Puma'
+          },
+          {
+            title: 'Wow!',
+            brand: 'Nike'
+          }
+        ]} />
       </div>
     )
   }
@@ -22,9 +27,9 @@ class App extends Component {
         <div className={styles.Header}>
           <Header />
         </div>
-        <div className={styles.Content}>
+        <main className={styles.Content}>
           { this.mainContent() }
-        </div>
+        </main>
         <div className={styles.Footer}>
           ShoeShop 2017. Education project.
         </div>

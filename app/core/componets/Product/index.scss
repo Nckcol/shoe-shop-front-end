@@ -1,21 +1,22 @@
 .Product {
-  &-Top {
-    color: red;
-  }
+  
+}
 
-  &-Details {
-    width: auto;
-  }
+.Top {
+}
 
-  &-Photo {
-    width: auto;
-  }
+.Details {
+  
+}
 
-  &-Title {
-    width: auto;
-  }
+.Photo {
+  vertical-align: middle;
+}
 
-  &-Price {
-    width: auto;
-  }
+.Title {
+  font-size: 18px;
+}
+
+.Price {
+  width: auto;
 }

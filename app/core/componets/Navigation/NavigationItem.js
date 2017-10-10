@@ -1,17 +1,19 @@
-import React, { Component } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 
-class NavigationItem extends Component {
-  render () {
-    const {styles, title, link} = this.props
-    
-    return (
-      <a className={styles.Item} href={link}>{title}</a>
-    )
-  }
+const NavigationItem = props => {
+  const {styles, title, link} = props
+
+  return (
+    <a className={styles.Item} href={link}>{title}</a>
+  )
 }
 
-NavigationItem.propTypes = {}
-NavigationItem.defaultProps = {}
+NavigationItem.propTypes = {
+  styles: PropTypes.object,
+  title: PropTypes.string,
+  link: PropTypes.string
+}
 
 export {
   NavigationItem

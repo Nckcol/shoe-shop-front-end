@@ -18,6 +18,12 @@ const PATHS = {
   modules: path.resolve(__dirname, 'node_modules')
 }
 
+const ALIAS = {
+  core: path.resolve(__dirname, './app/core'),
+  module: path.resolve(__dirname, './app/modules'),
+  service: path.resolve(__dirname, './app/service')
+}
+
 const STATS = {
   assets: true,
   children: false,
@@ -207,7 +213,8 @@ module.exports = function (options) {
       modules: [
         PATHS.modules,
         PATHS.source
-      ]
+      ],
+      alias: ALIAS
     },
 
     plugins: removeEmpty([
